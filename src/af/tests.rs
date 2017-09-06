@@ -39,13 +39,13 @@ fn test_conditional_op() {
   var!(u = &x + &t);
   var!(v = cond!(if y < z then { &x } else { &u }));
 
-  // The Context of execution containing the mutable graph of evalued values & gradients (aka Wengert Tape in theory)
+  // The Context of execution containing the mutable graph of evaluated values & gradients (aka Wengert Tape in theory)
   let ctx = Ctx::new();
 
   // let's evaluate in forward mode
   let ev = v.eval(&ctx);
 
-  // let's compute partial gradients per variable x
+  // let's compute partial gradients per variable x (by reverse diff aka back propagation)
   timed!(let dx  = d!(ev / d(x)).unwrap());
   af_print!("d/dx:", dx); 
 

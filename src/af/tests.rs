@@ -18,7 +18,7 @@ fn test_conditional_op() {
 
   let ctx = Ctx::new();
 
-  /// Here is the program to differentiate
+  /// Here is the program to differentiate (with a conditional expression in it)
   /// This is equivalent to:
   /// ```
   /// x = d;

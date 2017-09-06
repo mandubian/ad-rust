@@ -26,6 +26,8 @@ fn test_conditional_op() {
   /// u = &x + &t;
   /// v = if y < x then { &x } else { &u };
   /// ```
+  /// Macros are required because we can't override assignment operator (=) & if/then/else constructions
+  /// which is sad because many operators are overridable...
   var!(x = d);
   var!(y = d2);
   var!(z = &x + &y);

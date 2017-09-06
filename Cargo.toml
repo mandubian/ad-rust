@@ -1,0 +1,12 @@
+[package]
+name = "arrayfire-ml"
+version = "0.1.0"
+authors = ["mandubian <pascal@projectseptember.com>"]
+
+[dependencies]
+libc = "0.2.11"
+num  = "0.1.32"
+lazy_static = "0.2.1"
+arrayfire = "3.5.0"
+time = "0.1.38"
+

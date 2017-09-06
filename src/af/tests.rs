@@ -16,8 +16,6 @@ fn test_conditional_op() {
   let d = Array::new(&d_input, d_dims);
   let d2 = Array::new(&d_input2, d_dims);
 
-  let ctx = Ctx::new();
-
   /// Here is the program to differentiate (with a conditional expression in it)
   /// This is equivalent to:
   /// ```
@@ -34,6 +32,9 @@ fn test_conditional_op() {
   var!(t = trigo::sin(&z));
   var!(u = &x + &t);
   var!(v = cond!(if y < x then { &x } else { &u }));
+
+  // The Context of execution containing the mutable graph of evalued values & gradients (aka Wenger Tape in theory)
+  let ctx = Ctx::new();
 
   // let's evaluate in forward mode
   let ev = v.eval(&ctx);
